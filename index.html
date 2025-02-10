@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guessing game</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            align-items: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            color: #34495e;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .guessField {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 5px;
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .guessField:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .guessSubmit {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        .guessSubmit:hover {
+            background-color: #2980b9;
+        }
+
+        
+        @media screen and (max-width: 768px) {
+            body {
+                width: 90%;
+                min-width: auto;
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            p {
+                font-size: 14px;
+            }
+
+            .guessField {
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            .guessSubmit {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                width: 95%;
+                padding: 5px;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+
+            .form {
+                gap: 10px;
+            }
+
+            label {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <h1>Guess The Number</h1>
+    <p>
+        We have selected a random number
+        between 1 - 100. See if you can
+        guess it.
+    </p>
+
+    <div class="form">
+        <label for="guessField">
+            Enter a guess:
+        </label>
+
+        <input type="text" 
+               id="guessField" 
+               class="guessField">
+
+        <input type="submit" 
+               value="Submit guess" 
+               class="guessSubmit" 
+               id="submitguess">
+    </div>
+
+</div>
+    <script>
+         
+          let y = Math.floor(Math.random() * 100 + 1);
+
+            
+            let guess = 1;
+
+            document.getElementById("submitguess").onclick = function () {
+
+               
+            let x = document.getElementById("guessField").value;
+
+            if (x == y) {
+                alert("Hooray i guess...like you guessed a number and it was correct.")
+
+            }else if(x > y){
+                guess++;
+                alert("Ahaha, Guess lower dude.")
+            } else{
+                guess++;
+                alert("Sucks to suck try guess lower")
+            }
+        }
+    </script>
+</body>
+</html>
